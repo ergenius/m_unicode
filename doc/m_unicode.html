@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.32.2">
+    <meta name="project" content="m_unicode v0.1.0">
+
+
+    <title>m_unicode — m_unicode v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-erlang-EBZIIHAS.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-DD40D0E7.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-BHYOTRCH.js"></script>
+
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="https://github.com/ergenius/m_unicode" class="sidebar-projectName" translate="no">
+m_unicode
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.1.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of m_unicode</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L14" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+    <span translate="no">m_unicode</span> 
+    <small class="app-vsn" translate="no">(m_unicode v0.1.0)</small>
+
+  </h1>
+
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#characters_to_binary/1" data-no-tooltip translate="no">characters_to_binary(Input)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Converts a possibly unicode list of integers into a binary representing Unicode characters. Returns binary on success or 'error' atom otherwise.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#characters_to_binary/2" data-no-tooltip translate="no">characters_to_binary(Input, InEncoding)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#characters_to_list/1" data-no-tooltip translate="no">characters_to_list(Input)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Converts a possibly deep list of integers and binaries into a list of integers representing Unicode characters. Returns unicode character list on success or 'error' atom otherwise. The binaries in the input can have characters encoded as one of the following: - ISO Latin-1 (0-255, one character per byte). Here, case parameter InEncoding is to be specified as latin1. - One of the UTF-encodings, which is specified as parameter InEncoding.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#characters_to_list/2" data-no-tooltip translate="no">characters_to_list(Input, InEncoding)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#explode_trim_skip_empty/2" data-no-tooltip translate="no">explode_trim_skip_empty(Search, Subject)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#is_ascii/1" data-no-tooltip translate="no">is_ascii(T)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns true if the specified unicode list contains only ASCII characters or false otherwise.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#is_ascii_alpha/1" data-no-tooltip translate="no">is_ascii_alpha(T)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns true if the specified unicode list contains only ASCII alphabetic characters or false otherwise.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#is_ascii_alpha_lower/1" data-no-tooltip translate="no">is_ascii_alpha_lower(T)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns true if the specified unicode list contains only ASCII alphabetic lower case characters or false otherwise.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#is_ascii_alpha_numeric/1" data-no-tooltip translate="no">is_ascii_alpha_numeric(T)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns true if the specified unicode list contains only ASCII alphabetic and numeric characters or false otherwise.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#is_ascii_alpha_numeric_lower/1" data-no-tooltip translate="no">is_ascii_alpha_numeric_lower(T)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns true if the specified unicode list contains only ASCII alphabetic lower case and numeric characters or false otherwise.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#is_ascii_alpha_numeric_upper/1" data-no-tooltip translate="no">is_ascii_alpha_numeric_upper(T)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns true if the specified unicode list contains only ASCII alphabetic upper case and numeric characters or false otherwise.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#is_ascii_alpha_upper/1" data-no-tooltip translate="no">is_ascii_alpha_upper(T)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns true if the specified unicode list contains only ASCII alphabetic upper case characters or false otherwise.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#is_ascii_numeric/1" data-no-tooltip translate="no">is_ascii_numeric(T)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns true if the specified unicode list contains only ASCII numeric characters or false otherwise.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#is_unicode_alpha/1" data-no-tooltip translate="no">is_unicode_alpha(T)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns true if the specified unicode list contains only alphabetic letters or false otherwise. All letters in all languages are taken in account not only standard english ASCII letters. This function allow you to check for valid names for example.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#is_unicode_name/1" data-no-tooltip translate="no">is_unicode_name(T)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#replace/3" data-no-tooltip translate="no">replace(T, Replace, Subject)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Replace the specified list of characters with the specified character or characters</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#replace_string/3" data-no-tooltip translate="no">replace_string(Search, Replace, Subject)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Replace the specified string with the specified character or characters</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#to_lower/1" data-no-tooltip translate="no">to_lower(UnicodeList)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#to_title/1" data-no-tooltip translate="no">to_title(UnicodeList)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#to_upper/1" data-no-tooltip translate="no">to_upper(UnicodeList)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#trim/1" data-no-tooltip translate="no">trim(UnicodeList)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Trim unicode list</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#trim/2" data-no-tooltip translate="no">trim(UnicodeList, _)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Trim unicode list left, right, both or none</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#trim_left/1" data-no-tooltip translate="no">trim_left(UnicodeList)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Left trim unicode list</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#trim_right/1" data-no-tooltip translate="no">trim_right(UnicodeList)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Right trim unicode list</p></div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="characters_to_binary/1">
+
+  <div class="detail-header">
+    <a href="#characters_to_binary/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">characters_to_binary(Input)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L69" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Converts a possibly unicode list of integers into a binary representing Unicode characters. Returns binary on success or 'error' atom otherwise.</p>
+  </section>
+</section>
+<section class="detail" id="characters_to_binary/2">
+
+  <div class="detail-header">
+    <a href="#characters_to_binary/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">characters_to_binary(Input, InEncoding)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L70" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="characters_to_list/1">
+
+  <div class="detail-header">
+    <a href="#characters_to_list/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">characters_to_list(Input)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L55" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Converts a possibly deep list of integers and binaries into a list of integers representing Unicode characters. Returns unicode character list on success or 'error' atom otherwise. The binaries in the input can have characters encoded as one of the following: - ISO Latin-1 (0-255, one character per byte). Here, case parameter InEncoding is to be specified as latin1. - One of the UTF-encodings, which is specified as parameter InEncoding.</p>
+  </section>
+</section>
+<section class="detail" id="characters_to_list/2">
+
+  <div class="detail-header">
+    <a href="#characters_to_list/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">characters_to_list(Input, InEncoding)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L56" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="explode_trim_skip_empty/2">
+
+  <div class="detail-header">
+    <a href="#explode_trim_skip_empty/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">explode_trim_skip_empty(Search, Subject)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L258" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="is_ascii/1">
+
+  <div class="detail-header">
+    <a href="#is_ascii/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_ascii(T)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L149" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns true if the specified unicode list contains only ASCII characters or false otherwise.</p>
+  </section>
+</section>
+<section class="detail" id="is_ascii_alpha/1">
+
+  <div class="detail-header">
+    <a href="#is_ascii_alpha/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_ascii_alpha(T)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L157" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns true if the specified unicode list contains only ASCII alphabetic characters or false otherwise.</p>
+  </section>
+</section>
+<section class="detail" id="is_ascii_alpha_lower/1">
+
+  <div class="detail-header">
+    <a href="#is_ascii_alpha_lower/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_ascii_alpha_lower(T)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L165" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns true if the specified unicode list contains only ASCII alphabetic lower case characters or false otherwise.</p>
+  </section>
+</section>
+<section class="detail" id="is_ascii_alpha_numeric/1">
+
+  <div class="detail-header">
+    <a href="#is_ascii_alpha_numeric/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_ascii_alpha_numeric(T)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L189" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns true if the specified unicode list contains only ASCII alphabetic and numeric characters or false otherwise.</p>
+  </section>
+</section>
+<section class="detail" id="is_ascii_alpha_numeric_lower/1">
+
+  <div class="detail-header">
+    <a href="#is_ascii_alpha_numeric_lower/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_ascii_alpha_numeric_lower(T)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L197" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns true if the specified unicode list contains only ASCII alphabetic lower case and numeric characters or false otherwise.</p>
+  </section>
+</section>
+<section class="detail" id="is_ascii_alpha_numeric_upper/1">
+
+  <div class="detail-header">
+    <a href="#is_ascii_alpha_numeric_upper/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_ascii_alpha_numeric_upper(T)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L205" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns true if the specified unicode list contains only ASCII alphabetic upper case and numeric characters or false otherwise.</p>
+  </section>
+</section>
+<section class="detail" id="is_ascii_alpha_upper/1">
+
+  <div class="detail-header">
+    <a href="#is_ascii_alpha_upper/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_ascii_alpha_upper(T)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L173" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns true if the specified unicode list contains only ASCII alphabetic upper case characters or false otherwise.</p>
+  </section>
+</section>
+<section class="detail" id="is_ascii_numeric/1">
+
+  <div class="detail-header">
+    <a href="#is_ascii_numeric/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_ascii_numeric(T)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L181" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns true if the specified unicode list contains only ASCII numeric characters or false otherwise.</p>
+  </section>
+</section>
+<section class="detail" id="is_unicode_alpha/1">
+
+  <div class="detail-header">
+    <a href="#is_unicode_alpha/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_unicode_alpha(T)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L134" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns true if the specified unicode list contains only alphabetic letters or false otherwise. All letters in all languages are taken in account not only standard english ASCII letters. This function allow you to check for valid names for example.</p>
+  </section>
+</section>
+<section class="detail" id="is_unicode_name/1">
+
+  <div class="detail-header">
+    <a href="#is_unicode_name/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_unicode_name(T)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L141" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="replace/3">
+
+  <div class="detail-header">
+    <a href="#replace/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">replace(T, Replace, Subject)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L213" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Replace the specified list of characters with the specified character or characters</p>
+  </section>
+</section>
+<section class="detail" id="replace_string/3">
+
+  <div class="detail-header">
+    <a href="#replace_string/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">replace_string(Search, Replace, Subject)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L234" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Replace the specified string with the specified character or characters</p>
+  </section>
+</section>
+<section class="detail" id="to_lower/1">
+
+  <div class="detail-header">
+    <a href="#to_lower/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">to_lower(UnicodeList)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L278" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="to_title/1">
+
+  <div class="detail-header">
+    <a href="#to_title/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">to_title(UnicodeList)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L279" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="to_upper/1">
+
+  <div class="detail-header">
+    <a href="#to_upper/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">to_upper(UnicodeList)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L277" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="trim/1">
+
+  <div class="detail-header">
+    <a href="#trim/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">trim(UnicodeList)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L88" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Trim unicode list</p>
+  </section>
+</section>
+<section class="detail" id="trim/2">
+
+  <div class="detail-header">
+    <a href="#trim/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">trim(UnicodeList, _)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L82" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Trim unicode list left, right, both or none</p>
+  </section>
+</section>
+<section class="detail" id="trim_left/1">
+
+  <div class="detail-header">
+    <a href="#trim_left/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">trim_left(UnicodeList)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L95" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Left trim unicode list</p>
+  </section>
+</section>
+<section class="detail" id="trim_right/1">
+
+  <div class="detail-header">
+    <a href="#trim_right/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">trim_right(UnicodeList)</h1>
+
+      <a href="https://github.com/ergenius/m_unicode/blob/v0.1.0/src/m_unicode.erl#L98" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Right trim unicode list</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+          <span class="line">
+            <a href="https://hex.pm/packages/m_unicode/0.1.0" class="footer-hex-package">Hex Package</a>
+
+            <a href="https://preview.hex.pm/preview/m_unicode/0.1.0">Hex Preview</a>
+
+          </span>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="m_unicode.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.32.2) for the
+
+          <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+
+  </body>
+</html>
